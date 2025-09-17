@@ -1,5 +1,6 @@
 package mthree.com.fullstackschool.dao.mappers;
 
+import mthree.com.fullstackschool.model.Course;
 import mthree.com.fullstackschool.model.Student;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
@@ -10,8 +11,13 @@ public class StudentMapper implements RowMapper<Student> {
     public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
         //YOUR CODE STARTS HERE
 
+        Student s = new Student();
 
-        return null;
+        s.setStudentId(rs.getInt("sid"));
+        s.setStudentFirstName(rs.getString("fName"));
+        s.setStudentLastName(rs.getString("lName"));
+
+        return s;
 
         //YOUR CODE ENDS HERE
     }
